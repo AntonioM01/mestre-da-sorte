@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo - Escolha o Número</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Escolha um número de 0 a 1.000.000!</h1>
+    <div id="game-board"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    margin: 20px auto;
+    max-width: 90%;
+}
+.number {
+    padding: 10px;
+    background: lightblue;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+.number.selected {
+    background: red;
+    color: white;
+    pointer-events: none;
+}
+
