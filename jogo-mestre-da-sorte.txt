@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo dos Números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .table-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        .number {
+            width: 50px;
+            height: 50px;
+            margin: 2px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: white;
+            font-size: 14px;
+        }
+        .number.used {
+            background-color: red;
+            color: white;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogo dos Números</h1>
+    <p>Clique em um número para escolhê-lo. Ele ficará vermelho e não poderá ser selecionado novamente.</p>
+    <div class="table-container" id="table-container"></div>
+
+    <script>
+        const container = document.getElementById('table-container');
+
+        // Gera números de 0 a 1 milhão e cria os elementos na tabela
+        for (let i = 0; i <= 1000000; i++) {
+            const numberDiv = document.createElement('div');
+            numberDiv.classList.add('number');
+            numberDiv.textContent = i;
+            numberDiv.addEventListener('click', () => {
+                numberDiv.classList.add('used');
+            });
+            container.appendChild(numberDiv);
+        }
+    </script>
+</body>
+</html>
